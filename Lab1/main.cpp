@@ -42,7 +42,8 @@ int main()
 	marioKart.setDeveloper("Nintendo");
 	marioKart.setGenre("Racing");
 	marioKart.setIsAgeRestricted(false);
-
+	
+ 	cout << "Available Games\n" << endl;
 	callOfDutyBlackOps2.showGame();
 	zelda.showGame();
 	battlefield4.showGame();
@@ -50,6 +51,7 @@ int main()
 	marioKart.showGame();
 	pokemon.showGame();
 
+	cout << "Sale Prices\n" << endl;
 	callOfDutyBlackOps2.salePrice(20);
 	zelda.salePrice(20);
 	battlefield4.salePrice(20);
@@ -57,6 +59,7 @@ int main()
 	marioKart.salePrice(20);
 	pokemon.salePrice(20);
 
+	cout << "Which Century?\n" << endl;
 	callOfDutyBlackOps2.showGameCentury();
 	zelda.showGameCentury();
 	battlefield4.showGameCentury();

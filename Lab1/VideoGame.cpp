@@ -30,11 +30,32 @@ VideoGame::VideoGame(char con, double pric, string tit, int relyear, string dev,
 	isAgeRestricted = ar;
 }
 
-VideoGame::showGame()
+void VideoGame::showGame()
 {
 	cout << "Title: " << title << endl;
-	cout << "Price: " << price << endl;
-	cout << "Console; " << console << endl;
+	cout << "Price: " << price << " dollars" << endl;
+	
+	switch (console) 
+	{
+		case 'x':
+			cout << "Console: Xbox" << endl;
+			break;
+		case 'p':
+			cout << "Console: Play Station" << endl;
+			break;
+		case 'P':
+			cout << "Console: PC" << endl;
+			break;
+		case 'w':
+			cout << "Console: Wii" << endl;
+			break;
+		case 'g':
+			cout << "Console: Game Boy" << endl;
+			break;
+		default:
+			cout << "Sold Out" << endl;
+	}
+		
 	cout << "Year of Release: " << releaseYear << endl;
 	cout << "Developer: " << developer << endl;
 	cout << "Genre: " << genre << endl;
@@ -44,22 +65,28 @@ VideoGame::showGame()
 	else
 		cout << "NOT Age Restricted" << endl;
 
+	cout << " - - - - - - - - - - - - - - " << endl;
+
 }
 
-VideoGame::salePrice(double percentOff)
+void VideoGame::salePrice(double percentOff)
 {
-	price -= (0.10 * percentOff * price); 
+	price = price - (0.01 * percentOff * price); 
 	
-	cout << percentOff << " Percent Off " << title << ": " <<  price << endl;
+	cout << percentOff << " Percent Off " << title << ": " <<  price << " dollars" << endl;
+	
+	cout << " - - - - - - - -- - - - - - " << endl;
 }
 
-VideoGame::showGameCentury()
+void VideoGame::showGameCentury()
 {
 	if (releaseYear >= 2000)
-		cout << "21st Century!" << endl;
+		cout << title << ": 21st Century!" << endl;
 	else if (releaseYear >= 1900)
-		cout << "20th Century!" << endl;
+		cout << title << ": 20th Century!" << endl;
 	else
-		cout << "Not Possible!" << endl;
+		cout << title << ": Not Possible!" << endl;
+
+	cout << " - - - - - - - - - - - - - " << endl;
 }
 
