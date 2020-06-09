@@ -1,4 +1,4 @@
-/* 
+/*
 author: Konrad Rozanski
 
 This is the implementation file for VideoGame.h
@@ -42,9 +42,9 @@ void VideoGame::showGame()
 {
 	cout << "Title: " << title << endl;
 	cout << "Price: " << price << " dollars" << endl;
-	
+
     // switch statement to output the right console based upon the char representing the console
-	switch (console) 
+	switch (console)
 	{
 		case 'x':
 			cout << "Console: Xbox" << endl;

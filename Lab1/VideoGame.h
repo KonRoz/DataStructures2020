@@ -16,8 +16,7 @@ based upon the percentage that it is passed. It displays
 it and then stores it as the new price of the video game. 
 
 showGameCentury uses the value of releaseYear to display
-which century the game was developed in. 
-
+which century the game was developed in.
 */
 
 #ifndef VIDEOGAMES_H
@@ -29,7 +28,7 @@ class VideoGame
 {
 
 	private:
-        
+
 		char console;
 		double price;
 		string title;
