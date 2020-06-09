@@ -1,3 +1,10 @@
+/* 
+author: Konrad Rozanski
+
+Testing VideoGame class by instantiating 6 objects using the various
+constructors and calling the additional methods
+*/
+
 #include <string>
 #include <iostream>
 #include "VideoGame.h"
@@ -5,7 +12,7 @@ using namespace std;
 
 int main()
 {
-
+    // instantiating various video games
 	VideoGame callOfDutyBlackOps2;
 	VideoGame zelda ('x');
 	VideoGame battlefield4 ('p', 40);
@@ -43,6 +50,7 @@ int main()
 	marioKart.setGenre("Racing");
 	marioKart.setIsAgeRestricted(false);
 	
+    // Testing additional methods 
  	cout << "Available Games\n" << endl;
 	callOfDutyBlackOps2.showGame();
 	zelda.showGame();

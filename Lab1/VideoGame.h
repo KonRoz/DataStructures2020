@@ -1,3 +1,25 @@
+/*
+author: Konrad Rozanski
+ 
+This is the header file for for the VideoGame class.
+
+It contains several private members describing a typical
+video game sold by retail outlets. There are accessors 
+and mutators associated with every private member. Likewise,
+there are 6 constructors included --> one default constructor,
+one constructor which takes 7 arguments. 
+
+showGame displays the values of all 7 private members 
+
+salePrice calculates the sale price of the video game 
+based upon the percentage that it is passed. It displays
+it and then stores it as the new price of the video game. 
+
+showGameCentury uses the value of releaseYear to display
+which century the game was developed in. 
+
+*/
+
 #ifndef VIDEOGAMES_H
 #define VIDEOGAMES_H
 #include <string>
@@ -7,7 +29,7 @@ class VideoGame
 {
 
 	private:
-
+        
 		char console;
 		double price;
 		string title;
@@ -47,8 +69,7 @@ class VideoGame
 		// additional methods
 		void showGame();
 		void salePrice(double percentOff);
-		void showGameCentury();
-	
+		void showGameCentury();	
 };
 
 #endif

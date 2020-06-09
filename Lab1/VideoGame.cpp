@@ -1,8 +1,15 @@
+/* 
+author: Konrad Rozanski
+
+This is the implementation file for VideoGame.h
+*/
+
 #include <string>
 #include <iostream>
 #include "VideoGame.h"
 using namespace std;
 
+// constructors
 VideoGame::VideoGame() {}
 
 VideoGame::VideoGame(char con): console(con) {}
@@ -30,11 +37,13 @@ VideoGame::VideoGame(char con, double pric, string tit, int relyear, string dev,
 	isAgeRestricted = ar;
 }
 
+// additional methods
 void VideoGame::showGame()
 {
 	cout << "Title: " << title << endl;
 	cout << "Price: " << price << " dollars" << endl;
 	
+    // switch statement to output the right console based upon the char representing the console
 	switch (console) 
 	{
 		case 'x':
