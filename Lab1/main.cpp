@@ -1,5 +1,6 @@
 /*
 author: Konrad Rozanski
+file: main.py
 
 Testing VideoGame class by instantiating 6 objects using the various
 constructors and calling the additional methods
