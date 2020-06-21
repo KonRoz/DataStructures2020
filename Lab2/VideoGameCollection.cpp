@@ -56,40 +56,40 @@ void VideoGameCollection::enterDataManually()
 
 void VideoGameCollection::loadDataAutomatically(string file_name)
 {
-    // make sure to modify code for 5 arguments
     fstream fileIn;
-    fileIn.open(file_name.c_str(), ios::in);
+    fileIn.open(file_name, ios::in);
 
     vector<string> row;
-    string line="", word="";
+    string line;
+    string word;
 
-    while (!fileIn.eof())
+    while (getline(fileIn, line))
     {
-        getline(fileIn, line);
-
         row.clear();
 
-        istringstream s(line);
+        istringstream s (line);
 
         while (getline(s, word, ','))
         {
             row.push_back(word);
         }
 
-        cout << row[0] << ',';
-        cout << row[1] << ',';
-        cout << row[2] << ',';
-        cout << row[3] << ',';
-        cout << row[4] << ',';
-        cout << row[5] << "\n";
-
-        VideoGame aVideoGame(row[0], stoi(row[1]), stod(row[2]), row[3][0], (row[4].compare("true") == 0) ? true : false);
+        VideoGame aVideoGame(row[0][0], stod(row[1]), row[2], stoi(row[3]), row[4], row[5], (row[6].compare("true") == 0) ? true : false);
 
         addVideoGame(aVideoGame);
 
-        cout << "LINE : " << line << endl << endl;
+        cout << "LINE WAS READ : (" << line << ")"  << endl;
     }
-    cout << endl << "Records Read!" << endl;
+    if (fileIn.bad())
+    {
+        cout << "An IO error occured\n";
+    } else if (!fileIn.eof())
+    {
+        cout << "A format error occured\n";
+    } else
+    {
+        cout << endl << "Records Read!" << endl;
+    }
 }
 
 void VideoGameCollection::printReport()
@@ -108,12 +108,14 @@ void VideoGameCollection::printReport()
 
 void VideoGameCollection::generateAndPrintVector()
 {
-    vector<VideoGame> videoGameVector;
+    cout << "Generating vector from array...\n";
 
+    vector<VideoGame> videoGameVector;
+    
     // moving elements in the array to the vector
-    for (VideoGame game: videogames)
+    for (int i = 0; i < VideoGame::num_games; i++)
     {
-        videoGameVector.push_back(game);
+        videoGameVector.push_back(videogames[i]);
     }
 
     cout << "Displaying the elements in the vector : " << endl;

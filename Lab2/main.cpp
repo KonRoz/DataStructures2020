@@ -41,14 +41,23 @@ int main()
 
     while (selected != '5')
     {
-        cout << "\n\n\t\tVideo Games Menu\n\n";
-        cout << "Items : " << VideoGame::num_games << endl;
 
-        cout << "1. Enter data into the array manually" << endl;
-        cout << "2. Load data from a CSV of XML file into the array" << endl;
-        cout << "3. Print report of elements in the array" << endl;
-        cout << "4. Generate a vector from the array and display the contents" << endl;
-        cout << "5. Exit program" << endl;
+        cout << "\n\n\t\tVideo Games Menu\n\n";
+        cout << "Items : " << VideoGame::num_games << "\n";
+
+        cout << "1. Enter data into the array manually\n";
+        cout << "2. Load data from a CSV of XML file into the array\n";
+        cout << "3. Print report of elements in the array\n";
+        cout << "4. Generate a vector from the array and display the contents\n";
+        cout << "5. Exit program\n";
+
+        cout << "\nSelected Values (1 --> Selected) : \n";
+        cout << "\t\t\t\tOption 1 : " << select1 << "\n";
+        cout << "\t\t\t\tOption 2 : " << select2 << "\n";
+        cout << "\t\t\t\tOption 3 : " << select3 << "\n";
+        cout << "\t\t\t\tOption 4 : " << select4 << "\n";
+
+        cout << "Select Value : "; 
 
         selected = getchar();
 
@@ -61,25 +70,59 @@ int main()
 
         switch (selected)
         {
-            case '1':   myVideoGameCollection.enterDataManually();
-                        select1 = true;
+            case '1':   if (!select1)
+                        {
+                            myVideoGameCollection.enterDataManually();
+                            select1 = true;
+                        } else
+                        {
+                            cout << "You have already entered data manually\n";
+                            cout << "Choose another option!\n";
+                        }
                         break;
 
-            case '2':   myVideoGameCollection.loadDataAutomatically(fileName);
-                        select2 = true;
+            case '2':   if (!select2)
+                        {
+                            myVideoGameCollection.loadDataAutomatically(fileName);
+                            select2 = true;
+                        } else
+                        {
+                            cout << "You have already loaded data from a file\n";
+                            cout << "Choose another option!\n";
+                        }
                         break;
 
-            case '3':   myVideoGameCollection.printReport();
-                        select3 = true;
+            case '3':   if (!select3)
+                        {
+                            myVideoGameCollection.printReport();
+                            select3 = true;
+                        } else
+                        {
+                            cout << "You have already displayed the data\n";
+                            cout << "Choose another option!\n";
+                        }
                         break;
 
-            case '4':   myVideoGameCollection.generateAndPrintVector();
-                        select4 = true;
+            case '4':   if (!select4)
+                        {
+                            myVideoGameCollection.generateAndPrintVector();
+                            select4 = true;
+                        } else
+                        {
+                            cout << "You have already generated and printed and vector\n";
+                            cout << "Choose another option!\n";
+                        }
+                        break;
+            default:    selected = '5';
                         break;
         }
 
-    cin.clear();
-    cin.ignore(INT_MAX, '\n');
+
+        if (select1 && select2 && select3 && select4)
+            break;
+
+        cin.clear();
+        cin.ignore(INT_MAX, '\n');
     }
     return 0;
 }
