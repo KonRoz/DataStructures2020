@@ -24,7 +24,8 @@ which century the game was developed in.
 #ifndef VIDEOGAMES_H
 #define VIDEOGAMES_H
 #include <string>
-using namespace std;
+
+// using namespace std;
 
 class VideoGame
 {
@@ -33,38 +34,40 @@ class VideoGame
 
 		char console;
 		double price;
-		string title;
+        std::string title;
 		int releaseYear;
-		string developer;
-		string genre;
+        std::string developer;
+        std::string genre;
 		bool isAgeRestricted;
 
 	public:
+        // static members 
+        static int mynum;
 
 		// constructors
 		VideoGame();
 		VideoGame(char con);
 		VideoGame(char con, double pric);
-		VideoGame(char con, double pric, string tit);
-		VideoGame(char con, double pric, string tit, int relyear);
-		VideoGame(char con, double pric, string tit, int relyear, string dev, string gen, bool ar);
+		VideoGame(char con, double pric, std::string tit);
+		VideoGame(char con, double pric, std::string tit, int relyear);
+		VideoGame(char con, double pric, std::string tit, int relyear, std::string dev, std::string gen, bool ar);
 
 		// accessors 
 		char getConsole() { return console; }
 		double getPrice() { return price; }
-		string getTitle() { return title; }
+        std::string getTitle() { return title; }
 		int getReleaseYear() { return releaseYear; }
-		string getDeveloper() { return developer; }
-		string getGenre() { return genre; }
+        std::string getDeveloper() { return developer; }
+        std::string getGenre() { return genre; }
 		bool getIsAgeRestricted() { return isAgeRestricted; }
 
 		// mutators
 		void setConsole(char c) { console=c; }
 		void setPrice(double p) { price=p; }
-		void setTitle(string t) { title=t; }
+		void setTitle(std::string t) { title=t; }
 		void setReleaseYear(int y) { releaseYear=y; }
-		void setDeveloper(string d) { developer=d; }
-		void setGenre(string g) { genre=g; }
+		void setDeveloper(std::string d) { developer=d; }
+		void setGenre(std::string g) { genre=g; }
 		void setIsAgeRestricted(bool a) { isAgeRestricted=a; }
 
 		// additional methods

@@ -9,10 +9,18 @@ constructors and calling the additional methods
 #include <string>
 #include <iostream>
 #include "VideoGame.h"
+
 using namespace std;
 
 int main()
 {
+    // changing static member
+    for (int i; i < 5; i++)
+    {
+        VideoGame::mynum = VideoGame::mynum + 1;
+        cout << "Static Member: " << VideoGame::mynum << endl;
+    }
+
     // instantiating various video games
     VideoGame callOfDutyBlackOps2;
     VideoGame zelda ('x');

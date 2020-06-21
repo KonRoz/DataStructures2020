@@ -10,6 +10,9 @@ This is the implementation file for VideoGame.h
 #include "VideoGame.h"
 using namespace std;
 
+// declaring public static members
+int VideoGame::num_games = 0;
+
 // constructors
 VideoGame::VideoGame() {}
 

@@ -24,6 +24,7 @@ which century the game was developed in.
 #ifndef VIDEOGAMES_H
 #define VIDEOGAMES_H
 #include <string>
+
 using namespace std;
 
 class VideoGame
@@ -40,6 +41,8 @@ class VideoGame
 		bool isAgeRestricted;
 
 	public:
+        // public static members
+        static int num_games;
 
 		// constructors
 		VideoGame();

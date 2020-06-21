@@ -10,6 +10,8 @@ This is the implementation file for VideoGame.h
 #include "VideoGame.h"
 using namespace std;
 
+int VideoGame::mynum = 10;
+
 // constructors
 VideoGame::VideoGame() {}
 
