@@ -9,7 +9,11 @@ It contains several private members describing a typical
 video game sold by retail outlets. There are accessors 
 and mutators associated with every private member. Likewise,
 there are 6 constructors included --> one default constructor,
-one constructor which takes 7 arguments. 
+one constructor which takes 7 arguments.
+
+This file is generally similar to that of Lab 1. That said, a 
+public static member variable called num_games was added in order 
+to keep track of the number of instances of the VideoGame class.
 
 showGame displays the values of all 7 private members 
 

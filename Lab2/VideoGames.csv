@@ -1,2 +1,8 @@
-x,30,Call of Duty: Black Ops 2,2012,Treyarch,First-person View,true
-P,10,Tetris, 1990, Alexey, Arcade, false
+x,30,Call of Duty: Black Ops 2,2012,Treyarch,First-person Shooter,true
+P,10,Tetris,1990,Alexey,Arcade,false
+x,20,The Legend of Zelda,1986,Nintendo,Action-adventure,false
+p,25,Fifa 2012,2011,EA Vancouver,Sports,false
+w,19,Mario Kart,2008,Nintendo,Racing,false
+w,9,Super Smash Bros,2010,Nintendo,PVP,false
+g,15,Scribblenauts,2013,5th Cell,World-building,false
+p,31,Battlefield 4,2014,DICE,First-person Shooter,true

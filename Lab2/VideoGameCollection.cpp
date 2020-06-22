@@ -1,3 +1,11 @@
+/*
+author: Konrad Rozanski
+file: VideoGameCollection.cpp
+
+This is the implementation file for VideoGameCollection.h
+*/
+
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -118,11 +126,14 @@ void VideoGameCollection::generateAndPrintVector()
         videoGameVector.push_back(videogames[i]);
     }
 
-    cout << "Displaying the elements in the vector : " << endl;
+    cout << "\n\n\t\tDISPLAYING VECTOR ELEMENTS\n\n";
+    cout << ": : : : : : : : : : : : : : : : : : : : \n";
 
     // displaying the elements contained within the vector
     for (VideoGame game: videoGameVector)
     {
+        cout << "* * * * * * * * * * * * * * * * * * * *\n";
         game.showGame();
+        cout << "* * * * * * * * * * * * * * * * * * * *\n";
     }
 }

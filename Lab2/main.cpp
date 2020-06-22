@@ -2,8 +2,21 @@
 author: Konrad Rozanski
 file: main.py
 
-Testing VideoGame and Menu class by instantiating 6 objects using the various
-constructors and calling the additional methods
+This file creates the menu through which the user can access the 
+functionality of the VideoGameCollection class.
+
+The user can use each of the five given options before the program
+automatically exits.
+
+Likewise, the same option cannot be used twice. The program asks the 
+user to choose another option if that is the case.
+
+An unspecified option cannot be chosen --> the program will just ask
+for a legitamite option.
+
+There is a window displaying whether each option has been chosen at least
+once. A 1 indicates that the option has been chosen before. A 0 indicates
+the option has not yet been exercised.
 */
 
 #include <string>
@@ -21,23 +34,15 @@ int main()
     //instantiating the container class
     VideoGameCollection myVideoGameCollection;
 
-    // instantiating various video games
-    VideoGame callOfDutyBlackOps2('x', 30, "Call of Duty: Black Ops 2", 2012, "Treyarch", "First-person Shooter", true);
-    VideoGame zelda ('x', 10, "The Legend of Zelda", 1986, "Nintendo", "Action-adventure", false);
-    VideoGame battlefield4 ('p', 40, "Battlefield 4", 2013, "DICE", "First-person Shooter", true);
-    VideoGame fifa12 ('P', 25, "FIFA 2012", 2011, "EA Vancouver", "Sports", false);
-    VideoGame marioKart ('w', 20, "Mario Kart", 2008, "Nintendo", "Racing", false);
-    VideoGame pokemon ('g', 15, "Pokemon Red and Blue", 1998, "Game Freak", "Role-playing", false);
+    string fileName; 
 
-    cout << "Welcome to the Video Game Collection Program" << endl;
+    cout << "Welcome to the Video Game Collection Program \n\n";
     char selected = '0';
 
     bool select1 = false;
     bool select2 = false;
     bool select3 = false;
     bool select4 = false;
-
-    string fileName = "VideoGames.csv";
 
     while (selected != '5')
     {
@@ -83,6 +88,8 @@ int main()
 
             case '2':   if (!select2)
                         {
+                            cout << "XML or CSV File Name : ";
+                            cin >> fileName;
                             myVideoGameCollection.loadDataAutomatically(fileName);
                             select2 = true;
                         } else
@@ -113,11 +120,13 @@ int main()
                             cout << "Choose another option!\n";
                         }
                         break;
-            default:    selected = '5';
-                        break;
+
+            case '5':   break;
+
+            default:    cout << "\nPLEASE SELECT A VALID OPTION!\n" << endl;
         }
 
-
+        // ensures that all options have been exercised before breaking the loop
         if (select1 && select2 && select3 && select4)
             break;
 

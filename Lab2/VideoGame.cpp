@@ -78,7 +78,7 @@ void VideoGame::showGame()
 	else
 		cout << "NOT Age Restricted" << endl;
 
-	cout << " - - - - - - - - - - - - - - " << endl;
+	cout << "- - - - - - - - - - - - - - - - - - - -" << endl;
 
 }
 
@@ -100,6 +100,6 @@ void VideoGame::showGameCentury()
 	else
 		cout << title << ": Not Possible!" << endl;
 
-	cout << " - - - - - - - - - - - - - " << endl;
+	cout << "- - - - - - - - - - - - - - - - - - -" << endl;
 }
 
