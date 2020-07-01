@@ -5,7 +5,6 @@ file: VideoGameCollection.cpp
 This is the implementation file for VideoGameCollection.h
 */
 
-
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -17,15 +16,22 @@ using namespace std;
 
 VideoGameCollection::VideoGameCollection()
 {
-    // no nodes created initially
-
     head = NULL;
     tail = NULL;
 }
 
 VideoGameCollection::~VideoGameCollection()
 {
-    // destructor for the linked list
+    VGNode* current = head;
+
+    while (current != NULL)
+    {
+        VGNode* next = current->next;
+        delete current;
+        current = next;
+    }
+
+    head = NULL;
 }
 
 void VideoGameCollection::createNode (const VideoGame &video_game)
@@ -40,23 +46,74 @@ void VideoGameCollection::createNode (const VideoGame &video_game)
         head = temp;
         tail = temp;
         temp = NULL;
-    } 
+    }
     else
     {
         tail->next = temp;
         tail = temp;
     }
+    VideoGame::num_games++;
 }
 
-void VideoGameCollection::addVideoGameToEnd(const VideoGame &video_game)
+void VideoGameCollection::addVideoGameToEnd()
 {
-    // adding the video game to the end of the linked list
+    char console;
+    double price;
+    string title;
+    int releaseYear;
+    string developer;
+    string genre;
+    bool isAgeRestricted;
+
+    cout << "\n\nEnter Console --> x(box), p(lay station), P(C), w(ii), g(ame boy) : ";
+    cin >> console;
+
+    cout << "Enter Price : ";
+    cin >> price;
+
+    cout << "Enter Title : ";
+    cin >> title;
+
+    cout << "Enter Release Year : ";
+    cin >> releaseYear;
+
+    cout << "Enter Developer : ";
+    cin >> developer;
+
+    cout << "Enter Genre : ";
+    cin >> genre;
+
+    cout << "Enter Age Restriction --> 1(true), 0(false) : ";
+    cin >> isAgeRestricted;
+
+    VideoGame video_game (console, price, title, releaseYear, developer, genre, isAgeRestricted);
     createNode(video_game);
 }
 
-void VideoGameCollection::deleteVideoGame(const VideoGame &video_game)
+void VideoGameCollection::deleteVideoGameFromEnd()
 {
-    // delete video game
+    if (head == NULL)
+    {
+        cout << "The list is empty\n";
+    }
+    else if (head->next == NULL)
+    {
+        delete head;
+    } 
+    else 
+    {
+        VGNode* second_last = head;
+
+        while (second_last->next->next != NULL)
+        {
+            second_last = second_last->next;
+        }
+
+        delete (second_last->next);
+
+        second_last->next = NULL;
+    }
+    VideoGame::num_games--;
 }
 
 void VideoGameCollection::loadDataAutomatically(const string &file_name)
@@ -81,7 +138,7 @@ void VideoGameCollection::loadDataAutomatically(const string &file_name)
 
         VideoGame aVideoGame(row[0][0], stod(row[1]), row[2], stoi(row[3]), row[4], row[5], (row[6].compare("true") == 0) ? true : false);
 
-        addVideoGameToEnd(aVideoGame);
+        createNode(aVideoGame);
 
         cout << "LINE WAS READ : (" << line << ")"  << endl;
     }
@@ -111,7 +168,7 @@ void VideoGameCollection::printReport()
 
     while (temp != NULL)
     {
-        temp->videogame.showGame()
+        temp->videogame.showGame();
         temp = temp->next;
     }
 }

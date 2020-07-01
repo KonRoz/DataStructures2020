@@ -5,31 +5,34 @@ classes: VideoGameCollection
 
 This is the header file for VideoGameCollection class.
 
-It contains one private member and the associated public 
-members. The one private member is a standard array of size 10 
-(as dictated in the assignment). A single default constructor 
-is also included.
+It contains three private members and the associated public 
+members. The first is a struct which sets the structure for each
+node within the linked list, VideoGameCollection. The last two 
+private members, head and tail, are pointers to the first and
+last element in the linked list respectively. A single default 
+constructor is also included which sets the head and tail members
+to null. A destructor is defined to delete the linked list elements
+as they are dynamically allocated using new.
 
-addVideoGame adds the passed VideoGame object to the standard 
-array called videogames.
+createNode creates a node within the linked list using the instance
+of VideoGame that it is passed. It tacks this new node onto
+the end of the linked list.
 
-enterDataManually allows the user to fill in the fields required
-to create a VideoGame object. The associated prompts are included.
+addVideoGameToEnd collects information from the user to create 
+a new instance of VideoGame and passes it to createNode.
+
+deleteVideoGameFromEnd deletes the element at the end of the 
+linked list. 
 
 loadDataAutomatically takes the passed CSV or XML file (located in
 the same working directory) and parses it line by line to create 
-the desired VideoGame object. These objects are then stored in the 
-videogames array.
+the desired VideoGame object. These objects are then passed to 
+createNode one by one.
 
 printReport allows the user to print out a description of every
-VideoGame object within the videogames array. This is done by
+VideoGame object within the linked list. This is done by
 utilizing the showGame method that comes packaged in each 
 VideoGame object.
-
-generateAndPrintVector takes the current objects stored in the 
-videogames array and creates copies and stores them in a vector.
-The vector's contents are then displayed using a process similar
-to that in printReport.
 */
 
 #ifndef VIDEOGAMESCOLLECTION_H
@@ -62,10 +65,10 @@ class VideoGameCollection
 
         // Additional Methods
         void createNode (const VideoGame &video_game);
-        void addVideoGameToEnd(const VideoGame &video_game);
-        void deleteVideoGame(const VideoGame &video_game);
+        void addVideoGameToEnd();
+        void deleteVideoGameFromEnd();
         void loadDataAutomatically(const string &file_name);
-        void printReport() const;
+        void printReport();
 };
 
 #endif

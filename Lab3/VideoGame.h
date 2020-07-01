@@ -46,7 +46,7 @@ class VideoGame
 
 	public:
         // public static members
-        static int num_games;
+        static unsigned int num_games;
 
 		// constructors
 		VideoGame();

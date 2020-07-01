@@ -11,7 +11,7 @@ This is the implementation file for VideoGame.h
 using namespace std;
 
 // declaring public static members
-int VideoGame::num_games = 0;
+unsigned int VideoGame::num_games = 0;
 
 // constructors
 VideoGame::VideoGame() {}
