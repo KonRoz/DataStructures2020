@@ -26,37 +26,38 @@ VideoGame::VideoGame(char con, double pric, string tit, int relyear, string dev)
 }
 
 // additional methods
-virtual void VideoGame::showGame()
+void VideoGame::showGame()
 {
-    const char separator = ' ';
-    const int stringWidth = 30;
-    const int numWidth = 20;
+    cout << "-------------------------------------";
+	cout << left << setw(VideoGame::width) << "\nTitle : " << title << setfill(VideoGame::separator) << "\n";
+	cout << setw(VideoGame::width) << "Price : " << price << setfill(VideoGame::separator) << "\n";
 
-	cout << left << setw(stringWidth) << setfill(separator) << title;
-	cout << setw(numWidth) << setfill(separator) << price;
+    string con; 
 
     // switch statement to output the right console based upon the char representing the console
 	switch (console)
 	{
 		case 'x':
-			cout << setw(stringWidth) << setfill(separator) << "Xbox";
+			con = "Xbox";
 			break;
 		case 'p':
-			cout << setw(stringWidth) << setfill(separator) << "Play Station";
+			con = "Play Station";
 			break;
 		case 'P':
-			cout << setw(stringWidth) << setfill(separator) << "PC";
+			con = "PC";
 			break;
 		case 'w':
-			cout << setw(stringWidth) << setfill(separator) << "Wii";
+			con = "Wii";
 			break;
 		case 'g':
-			cout << setw(stringWidth) << setfill(separator) << "Game Boy";
+			con = "Game Boy";
 			break;
 		default:
-			cout << setw(stringWidth) << setfill(separator) << "Sold Out";
+			con = "Sold Out";
 	}
+
+	cout << setw(VideoGame::width) << "Console : " << con << setfill(VideoGame::separator) << "\n";
 		
-	cout << setw(numWidth) << setfill(separator) << releaseYear;
-	cout << setw(stringWidth) << setfill(separator) << developer;
+	cout << setw(VideoGame::width) << "Release Year : " << releaseYear << setfill(VideoGame::separator) << "\n";
+	cout << setw(VideoGame::width) << "Developer : " << developer << setfill(VideoGame::separator) << "\n";
 }

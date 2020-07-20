@@ -5,6 +5,7 @@ file: CombatGame.cpp
 This is the implementation file for CombatGame class
 */
 
+#include <iostream>
 #include <string>
 #include <iomanip>
 #include "VideoGame.h"
@@ -12,25 +13,24 @@ This is the implementation file for CombatGame class
 
 using namespace std;
 
-CombatGame::CombatGame(char con, double pric, string tit, int relyear, string dev, bool ar, int nw)
+CombatGame::CombatGame(char con, double pric, string tit, int relyear, string dev, bool ar, int nw) :
+    VideoGame(con, pric, tit, relyear, dev)
 {
-    VideoGame(con, pric, tit, relyear, dev);
-
     isAgeRestricted = ar;
     numWeapons = nw;
 }
 
-CombatGame::showValues()
+void CombatGame::showValues()
 {
     VideoGame::showGame();
 
     cout << setw(VideoGame::width) << "Number of Weapons : " << numWeapons << setfill(VideoGame::separator) << "\n";
 
-    if isAgeRestricted
+    if (isAgeRestricted)
     {
-        cout << "**AGE RESTRICTED**\n"; 
+        cout << setw(VideoGame::width) << "**AGE RESTRICTED**\n"; 
     } else
     {
-        cout << setw(VideoGame::width << "NOT AGE RESTRICTED\n";
+        cout << setw(VideoGame::width) << "NOT AGE RESTRICTED\n";
     }
 }
